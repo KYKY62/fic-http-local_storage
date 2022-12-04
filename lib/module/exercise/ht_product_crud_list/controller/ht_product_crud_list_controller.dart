@@ -74,7 +74,16 @@ class HtProductCrudListController extends State<HtProductCrudListView>
 
   delete(Map item) async {
     showLoading();
-
+    var id = item["id"];
+    var response = await Dio().delete(
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+      "${AppConfig.baseUrl}/products/$id",
+    );
+    print(response.statusCode);
     //TODO: --
     /*
     33A. ketika user melakukan klik ke tombol delete di dalam item

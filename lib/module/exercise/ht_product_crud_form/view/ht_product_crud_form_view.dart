@@ -18,7 +18,9 @@ class HtProductCrudFormView extends StatefulWidget {
   16. ok, bagus lanjut ke point 17
   buka HtProductCrudFormController
   */
+  final Map? item;
   const HtProductCrudFormView({
+    this.item,
     Key? key,
   }) : super(key: key);
 
@@ -47,7 +49,43 @@ class HtProductCrudFormView extends StatefulWidget {
           child: Container(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-              children: const [
+              children: [
+                QImagePicker(
+                  label: "Photo",
+                  hint: "Your photo",
+                  validator: Validator.required,
+                  value: controller.photo,
+                  onChanged: (value) {
+                    controller.photo = value;
+                  },
+                ),
+                QTextField(
+                  label: "Product Name",
+                  hint: "Name",
+                  validator: Validator.required,
+                  value: controller.photo,
+                  onChanged: (value) {
+                    controller.productName = value;
+                  },
+                ),
+                QNumberField(
+                  label: "Price Name",
+                  hint: "Your age's",
+                  validator: Validator.required,
+                  value: controller.price.toString(),
+                  onChanged: (value) {
+                    controller.price = value.toDouble();
+                  },
+                ),
+                QMemoField(
+                  label: "Description",
+                  hint: "Your addresses",
+                  validator: Validator.required,
+                  value: controller.description,
+                  onChanged: (value) {
+                    controller.description = value;
+                  },
+                ),
                 /*
                 TODO: --
                 2. buat variabel photo, productName dan price

@@ -126,6 +126,10 @@ class HtProductCrudListView extends StatefulWidget {
                       Buka HtProductCrudFormController:
                       lanjut ke point 27
                       */
+                      await Get.to(HtProductCrudFormView(
+                        item: item,
+                      ));
+                      controller.loadProducts();
                     },
                     child: Card(
                       child: ListTile(
