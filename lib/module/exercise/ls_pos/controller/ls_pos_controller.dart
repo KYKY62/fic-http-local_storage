@@ -51,8 +51,10 @@ class LsPosController extends State<LsPosView> implements MvcController {
     setState(() {});
     ###
     */
-    item["qty"]++;
-    setState(() {});
+
+    setState(() {
+      item["qty"]++;
+    });
   }
 
   decreaseQty(item) {
