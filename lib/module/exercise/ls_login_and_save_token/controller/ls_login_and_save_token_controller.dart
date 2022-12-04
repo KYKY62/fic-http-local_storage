@@ -25,6 +25,7 @@ class LsLoginAndSaveTokenController extends State<LsLoginAndSaveTokenView>
 
   doLogin() async {
     showLoading();
+
     /*
     TODO: --
     1. Buat http request
