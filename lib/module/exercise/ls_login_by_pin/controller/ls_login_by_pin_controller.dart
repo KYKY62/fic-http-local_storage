@@ -17,7 +17,6 @@ class LsLoginByPinController extends State<LsLoginByPinView>
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
-
   String pin = "";
 
   updatePin(int number) async {
