@@ -10,7 +10,9 @@ class LsFirstTimeSetupController extends State<LsFirstTimeSetupView>
   @override
   void initState() {
     instance = this;
+
     checkFirstTimeSetup();
+
     super.initState();
   }
 
