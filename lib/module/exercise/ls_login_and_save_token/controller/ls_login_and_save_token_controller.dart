@@ -24,8 +24,6 @@ class LsLoginAndSaveTokenController extends State<LsLoginAndSaveTokenView>
   String password = "123456";
 
   doLogin() async {
-    showLoading();
-
     /*
     TODO: --
     1. Buat http request
@@ -72,6 +70,7 @@ class LsLoginAndSaveTokenController extends State<LsLoginAndSaveTokenView>
     Jika alert Login Success muncul,
     Tasks ini selesai!
     */
+    showLoading();
 
     var response = await Dio().post(
       "${AppConfig.baseUrl}/auth/action/login",
