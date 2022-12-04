@@ -88,7 +88,6 @@ class HtProductListController extends State<HtProductListView>
     */
 
     var url = "${AppConfig.baseUrl}/products";
-    print("url: $url");
 
     var response = await Dio().get(
       url,
