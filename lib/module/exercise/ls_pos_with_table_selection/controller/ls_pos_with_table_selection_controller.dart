@@ -47,8 +47,9 @@ class LsPosWithTableSelectionController
   }
 
   increaseQty(item) {
-    item["qty"]++;
-    setState(() {});
+    setState(() {
+      item["qty"]++;
+    });
     /*
     4. Tambahkan qty dari item dengan klik tombol add
     gunakan kode ini:
