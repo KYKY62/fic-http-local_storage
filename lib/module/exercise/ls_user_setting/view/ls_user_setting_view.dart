@@ -63,9 +63,10 @@ class LsUserSettingView extends StatefulWidget {
                 value: mainStorage.get("Cache mode") ?? false,
                 title: const Text("Cache mode"),
                 onChanged: (value) {
-                  var current = mainStorage.get("Cache mode") ?? false;
-                  mainStorage.put("Cache mode", !current);
-                  controller.setState(() {});
+                  controller.setState(() {
+                    var current = mainStorage.get("Cache mode") ?? false;
+                    mainStorage.put("Cache mode", !current);
+                  });
                 },
               ),
               /*
