@@ -54,87 +54,85 @@ class LsFirstTimeSetupView extends StatefulWidget {
           ),
         ],
       ),
-      body: Scrollbar(
-        thumbVisibility: true,
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                header("Privacy Policy"),
-                const Divider(),
-                Text(
-                  faker.lorem.paragraph(
-                    sentenceCount: 20,
-                  ),
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                  ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              header("Privacy Policy"),
+              const Divider(),
+              Text(
+                faker.lorem.paragraph(
+                  sentenceCount: 20,
                 ),
-                const SizedBox(
-                  height: 20.0,
+                style: const TextStyle(
+                  fontSize: 12.0,
                 ),
-                header(faker.lorem.word(length: 10).capitalize()),
-                const Divider(),
-                Text(
-                  faker.lorem.paragraph(
-                    sentenceCount: 20,
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              header(faker.lorem.word(length: 10).capitalize()),
+              const Divider(),
+              Text(
+                faker.lorem.paragraph(
+                  sentenceCount: 20,
+                ),
+                style: const TextStyle(
+                  fontSize: 12.0,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              header(faker.lorem.word(length: 10).capitalize()),
+              const Divider(),
+              Text(
+                faker.lorem.paragraph(
+                  sentenceCount: 16,
+                ),
+                style: const TextStyle(
+                  fontSize: 12.0,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              header(faker.lorem.word(length: 10).capitalize()),
+              const Divider(),
+              Text(
+                faker.lorem.paragraph(
+                  sentenceCount: 18,
+                ),
+                style: const TextStyle(
+                  fontSize: 12.0,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: true,
+                    onChanged: (value) {},
                   ),
-                  style: const TextStyle(
-                    fontSize: 12.0,
+                  const Expanded(
+                    child: Text("i agree with terms and conditions"),
                   ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                header(faker.lorem.word(length: 10).capitalize()),
-                const Divider(),
-                Text(
-                  faker.lorem.paragraph(
-                    sentenceCount: 16,
-                  ),
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                header(faker.lorem.word(length: 10).capitalize()),
-                const Divider(),
-                Text(
-                  faker.lorem.paragraph(
-                    sentenceCount: 18,
-                  ),
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      value: true,
-                      onChanged: (value) {},
+                  ElevatedButton.icon(
+                    icon: const Icon(Icons.check),
+                    label: const Text("Submit"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueGrey,
                     ),
-                    const Expanded(
-                      child: Text("i agree with terms and conditions"),
-                    ),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.check),
-                      label: const Text("Submit"),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueGrey,
-                      ),
-                      onPressed: () => controller.submit(),
-                    )
-                  ],
-                ),
-              ],
-            ),
+                    onPressed: () => controller.submit(),
+                  )
+                ],
+              ),
+            ],
           ),
         ),
       ),
