@@ -62,6 +62,33 @@ class HtMapMarkerController extends State<HtMapMarkerView>
     5. Klik tombol add, jika marker muncul di Map,
     Tasks ini selesai
     */
+    var response = await Dio().get(
+      "${AppConfig.baseUrl}/user-positions",
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+    );
+    Map obj = response.data;
+    List list = obj["data"];
+    for (var i = 0; i < list.length; i++) {
+      var item = list[i];
+      markerList.add(
+        Marker(
+          point: LatLng(
+            item["latitude"],
+            item["longitude"],
+          ),
+          builder: (context) => const Icon(
+            Icons.person,
+            color: Colors.green,
+            size: 32,
+          ),
+        ),
+      );
+    }
+    setState(() {});
   }
 
   addMarker() async {
