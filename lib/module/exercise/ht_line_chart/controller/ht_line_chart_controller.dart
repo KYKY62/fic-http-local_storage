@@ -25,6 +25,7 @@ class HtLineChartController extends State<HtLineChartView>
   loadSalesHistory() async {
     salesDataList = [];
     setState(() {});
+    var url = "${AppConfig.baseUrl}/sales";
     /*
     TODO: --
     1. Buat sebuah get request menggunakan DIO
@@ -51,6 +52,26 @@ class HtLineChartController extends State<HtLineChartView>
 
     3. Panggil setState setelah-nya
     */
+    var response = await Dio().get(
+      url,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+    );
+    Map obj = response.data;
+    List items = obj["data"];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      salesDataList.add(
+        SalesData(
+          year: item["year"],
+          sales: item["sales"],
+        ),
+      );
+    }
+    setState(() {});
   }
 
   refresh({
