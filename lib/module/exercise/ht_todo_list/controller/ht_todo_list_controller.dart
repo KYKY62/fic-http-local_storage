@@ -23,6 +23,7 @@ class HtTodoListController extends State<HtTodoListView>
 
   List todoList = [];
   loadTodoList() async {
+    var url = "${AppConfig.baseUrl}/todos";
     /*
     TODO: --
     1. Buat sebuah get request menggunakan DIO
@@ -39,11 +40,38 @@ class HtTodoListController extends State<HtTodoListView>
 
     3. Panggil setState setelah-nya, lanjut ke point 4
     */
+    var response = await Dio().get(
+      url,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+    );
+    Map obj = response.data;
+    todoList = obj["data"];
+    setState(() {});
   }
 
   addTodo() async {
     showLoading();
     var faker = Faker.instance;
+    var url = "${AppConfig.baseUrl}/todos";
+    var response = await Dio().post(
+      url,
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+      data: {
+        "todo": faker.lorem.sentence(),
+        "done": false,
+      },
+    );
+    Map obj = response.data;
+    await loadTodoList();
+    hideLoading();
     /*
     TODO: --
     4. Buat sebuah get request menggunakan DIO
@@ -70,7 +98,19 @@ class HtTodoListController extends State<HtTodoListView>
   deleteTodo(item) async {
     showLoading();
     print("Delete?");
-
+    var id = item["id"];
+    var url = "${AppConfig.baseUrl}/todos/$id";
+    var response = await Dio().delete(
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
+      url,
+    );
+    print(response.statusCode);
+    await loadTodoList();
+    hideLoading();
     /*
     TODO: --
     6. Buat sebuah delete request menggunakan DIO
@@ -93,6 +133,19 @@ class HtTodoListController extends State<HtTodoListView>
 
   updateTodo(item) async {
     showLoading();
+    var id = item["id"];
+    item["done"] = !item["done"];
+    var url = "${AppConfig.baseUrl}/todos/$id";
+    var response = await Dio().post(url,
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+          },
+        ),
+        data: item);
+    Map obj = response.data;
+    await loadTodoList();
+    hideLoading();
     /*
     TODO: --
     9. Buat sebuah post request menggunakan DIO
