@@ -24,11 +24,47 @@ class LsUserSettingView extends StatefulWidget {
               Berikut adalah contoh-nya:
               */
               SwitchListTile(
-                value: mainStorage.get("dev_mode") ?? false,
-                title: const Text("Dev mode"),
+                value: mainStorage.get("Dark mode") ?? false,
+                title: const Text("Dark mode"),
                 onChanged: (value) {
-                  var current = mainStorage.get("dev_mode") ?? false;
-                  mainStorage.put("dev_mode", !current);
+                  var current = mainStorage.get("Dark mode") ?? false;
+                  mainStorage.put("Dark mode", !current);
+                  controller.setState(() {});
+                },
+              ),
+              SwitchListTile(
+                value: mainStorage.get("Login as Admin") ?? false,
+                title: const Text("Login as Admin"),
+                onChanged: (value) {
+                  var current = mainStorage.get("Login as Admin") ?? false;
+                  mainStorage.put("Login as Admin", !current);
+                  controller.setState(() {});
+                },
+              ),
+              SwitchListTile(
+                value: mainStorage.get("Experimental mode") ?? false,
+                title: const Text("Experimental mode"),
+                onChanged: (value) {
+                  var current = mainStorage.get("Experimental mode") ?? false;
+                  mainStorage.put("Experimental mode", !current);
+                  controller.setState(() {});
+                },
+              ),
+              SwitchListTile(
+                value: mainStorage.get("Offline mode") ?? false,
+                title: const Text("Offline mode"),
+                onChanged: (value) {
+                  var current = mainStorage.get("Offline mode") ?? false;
+                  mainStorage.put("Offline mode", !current);
+                  controller.setState(() {});
+                },
+              ),
+              SwitchListTile(
+                value: mainStorage.get("Cache mode") ?? false,
+                title: const Text("Cache mode"),
+                onChanged: (value) {
+                  var current = mainStorage.get("Cache mode") ?? false;
+                  mainStorage.put("Cache mode", !current);
                   controller.setState(() {});
                 },
               ),
