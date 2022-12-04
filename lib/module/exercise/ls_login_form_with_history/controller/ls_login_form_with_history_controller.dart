@@ -21,6 +21,7 @@ class LsLoginFormWithHistoryController extends State<LsLoginFormWithHistoryView>
 
   String email = "";
   String password = "";
+
   bool ready = false;
 
   doLogin() async {}
