@@ -41,9 +41,11 @@ class LsProductCrudController extends State<LsProductCrudView>
   }
 
   addProduct(Map newProduct) async {
-    productList.add(newProduct);
-    setState(() {});
-    saveproductList();
+    setState(() {
+      productList.add(newProduct);
+      saveproductList();
+    });
+
     /*
     3. Variabel map, berisi data yang di generate Faker
     Yuk, kita simpan data user ketika kita menekan tombol add
